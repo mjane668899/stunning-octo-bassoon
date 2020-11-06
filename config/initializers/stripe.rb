@@ -1,0 +1,8 @@
+
+# Create initializer to handle stripe keys from .env 
+Rails.configuration.stripe = {
+  publishable_key: ENV['STRIPE_PUBLIC_KEY'],
+  secret_key: ENV['STRIPE_SECRET_KEY']
+}
+
+Stripe.api_key = Rails.configuration.stripe[:secret_key]
