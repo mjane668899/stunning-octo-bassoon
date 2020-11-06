@@ -1,21 +1,18 @@
-<% if @current_user.present? %>
-    <h1>You are Logged In, <%= @current_user.email %></h1>
-    <% else %>
-    <h2>you are not logged in<h2>
-<%end%>
 <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Dashboard</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Sign out</a>
-    </li>
-  </ul>
-</nav>
+
+    <nav class="navbar theme-1">
+      <%= link_to "GABNB", root_path, :class => "logo" %>
+       <ul class="nav">
+         <% if @current_user.present? %>
+           <li class="nav-item"><a class="link"><%= link_to "Dashboard", @current_user %></a></li>
+           <li><a class="nav-link"><%= link_to "Log out #{ @current_user.email }", login_path, :method => 'delete' %></a></li>
+           <% else %>
+           <li class="nav-item"><a class="nav-link"><%= link_to "Log in", login_path %></a></li>
+           <li class="nav-item"><a class="nav-link"><%= link_to "Sign up", new_user_path %></a></li>
+           <% end %>
+         </ul>
+       </nav>
+
 
 <div class="container-fluid">
   <div class="row">
