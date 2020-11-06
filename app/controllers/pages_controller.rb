@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def home
-    @listings = Listing.all 
+    @properties = Property.all 
   end
 end

@@ -28,17 +28,19 @@
       </div>
     </main>
     <section>
-      <h1>Available Homes</h1>
-       <div class="container grid">
-        <!-- Loop through all products in database and display in css grid (auto rows) -->
-        <% @properties.each do |property| %>
-        <div class="card-item">
-          <%= image_tag property.image_url, :class => "card-img" %>
-          <h2><%= link_to property.name, property %></h2>
+      <div class="container">
+        <div class="container grid">
+          <h1>Available Homes</h1>
+          <!-- Loop through all products in database and display in css grid (auto rows) -->
+          <% @properties.each do |property| %>
+          <div class="card-item">
+            <!--%= image_tag property.image_url, :class => "card-img" %-->
+            <h2><%= link_to property.name, property %></h2>
+          </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-  </section>
+      </div>
+   </section>
 
 
 
