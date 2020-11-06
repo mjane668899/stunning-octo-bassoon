@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  root to: 'public#main'
+  root to: 'pages#home'
+
+  # Properties
+  resources :properties
 
   # Users
   resources :users, :only => [:new, :create, :show]

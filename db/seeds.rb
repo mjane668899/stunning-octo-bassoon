@@ -1,7 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+u1 = User.create :email => 'jasper@ga.com', :password => 'chicken'
+u2 = User.create :email => 'mj@ga.com', :password => 'chicken'
+u3 = User.create :email => 'mike@ga.com', :password => 'chicken', :stripe_user_id => 'acct_1HfE8uA6UJHgoYK8'
+puts "#{ User.count } users"
+
+Property.destroy_all
+10.times do
+Property.create([{
+  name: Faker::Lorem.sentence(word_count: 1),
+  address: Faker::Lorem.sentence(word_count: 6),
+  price: 1200,
+  guest: 1,
+  bedroom: 1,
+  bathroom: 1,
+  bed: 1,
+  parking_space: 1,
+  available_date: 1,
+  photo: 'https://ipsumimage.appspot.com/640x360',
+  details:Faker::Lorem.sentence(word_count: 50),
+  }])
+end
+puts "#{ Property.count } properties"
