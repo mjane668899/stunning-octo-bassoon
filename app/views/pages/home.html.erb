@@ -7,81 +7,71 @@
               <li><a class="btn"href="#">Places to stay</a></li>
               <li><a class="btn"href="#">Experience</a></li>
               <li><a class="btn"href="#">Become a host</a></li>
-            <% if @current_user.present? %>
-              <li><a><%= link_to "Dashboard", @current_user %></a></li>
-              <li><a><%= link_to "Log out #{ @current_user.email }", login_path, :method => 'delete'%></a></li>
-            <% else %>
               <li><a><%= link_to "Log in", login_path, class:"btn btn-primary"%></a></li>
               <li><a><%= link_to "Sign up", new_user_path, class:"btn btn-secondary"%></a></li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Search for Properties</h1>
-          <p>Use the interactive map to view available accomodation</p>
-          <p><a class="btn btn-success" href="#" role="button">Search Map »</a></p>
+            </ul>
+          </nav>
         </div>
-      </div>
-    </main>
-    <section>
-      <div class="container">
-        <div class="container grid">
-          <h1>Available Homes</h1>
-          <!-- Loop through all products in database and display in css grid (auto rows) -->
-          <% @properties.each do |property| %>
-          <div class="card-item">
-            <!--%= image_tag property.image_url, :class => "card-img" %-->
-            <h2><%= link_to property.name, property %></h2>
+      </header>
+      <main>
+        <div class="jumbotron">
+          <div class="container">
+            <h1 class="display-3">Search for Properties</h1>
+            <p>Use the interactive map to view available accomodation</p>
+            <p><a class="btn btn-success" href="#" role="button">Search Map »</a></p>
           </div>
-          <% end %>
         </div>
-      </div>
-   </section>
+      </main>
+      <section>
+        <div class="container">
+          <div class="container grid">
+            <h1>Available Homes</h1>
+            <!-- Loop through all products in database and display in css grid (auto rows) -->
+            <% @properties.each do |property| %>
+            <div class="card-item">
+              <!--%= image_tag property.image_url, :class => "card-img" %-->
+              <h2><%= link_to property.name, property %></h2>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </section>
 
-
-
-
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
-    <div class="row">
-      <div class="col-12 col-md">
-        <small class="d-block mb-3 text-muted">© 2017-2020</small>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Features</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Cool stuff</a></li>
-          <li><a class="text-muted" href="#">Random feature</a></li>
-          <li><a class="text-muted" href="#">Team feature</a></li>
-          <li><a class="text-muted" href="#">Stuff for developers</a></li>
-          <li><a class="text-muted" href="#">Another one</a></li>
-          <li><a class="text-muted" href="#">Last time</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Resources</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Resource</a></li>
-          <li><a class="text-muted" href="#">Resource name</a></li>
-          <li><a class="text-muted" href="#">Another resource</a></li>
-          <li><a class="text-muted" href="#">Final resource</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>About</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Team</a></li>
-          <li><a class="text-muted" href="#">Locations</a></li>
-          <li><a class="text-muted" href="#">Privacy</a></li>
-          <li><a class="text-muted" href="#">Terms</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-</div>
-
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <small class="d-block mb-3 text-muted">© 2017-2020</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Cool stuff</a></li>
+              <li><a class="text-muted" href="#">Random feature</a></li>
+              <li><a class="text-muted" href="#">Team feature</a></li>
+              <li><a class="text-muted" href="#">Stuff for developers</a></li>
+              <li><a class="text-muted" href="#">Another one</a></li>
+              <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Resource</a></li>
+              <li><a class="text-muted" href="#">Resource name</a></li>
+              <li><a class="text-muted" href="#">Another resource</a></li>
+              <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#">Team</a></li>
+              <li><a class="text-muted" href="#">Locations</a></li>
+              <li><a class="text-muted" href="#">Privacy</a></li>
+              <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
 
 </body>
