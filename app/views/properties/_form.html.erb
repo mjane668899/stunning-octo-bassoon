@@ -26,6 +26,8 @@
       <%= f.number_field :bed, :class =>'form-group form-control', :placeholder =>'Beds', min: 1 %>
       <%= f.label :bathroom %>
       <%= f.number_field :bathroom, :class =>'form-group form-control', :placeholder =>'Bathrooms', min: 0 %>
+      <%= f.label :price %>
+      <%= f.number_field :price, :class =>'form-group form-control', :placeholder =>'$ 100', min: 0 %>
       <%= f.submit "Submit", :class => "btn btn-primary col-12 form-group"%>
     </div>
     <% end %>

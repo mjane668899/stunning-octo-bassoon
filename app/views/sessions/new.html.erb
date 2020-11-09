@@ -1,19 +1,16 @@
-<div class="form">
-  <div class="form-group">
-    <h1>Sign in</h1>
-      <% if flash[:error].present? %>
-        <h4 class="error-msg"><%= flash[:error] %></h4>
-      <% end %>
-  </div>
+<div class="card w-25 my-5 mx-auto">
+  <div class="card-body">
+    <h5 class="card-title form-group">Sign in</h5>
+    <p class="card-text form-group">Enter your details below and log in</p>
+    <% if flash[:error].present? %>
+    <h4 class="error-msg"><%= flash[:error] %></h4>
+    <% end %>
     <%= form_tag login_path do %>
-        <div class='form-group'>
-          <%= label_tag :email %>
-          <%= email_field_tag :email %>
-        </div>
-        <div class='form-group'>
-          <%= label_tag :password %>
-          <%= password_field_tag :password %>
-        </div>
-      <%= submit_tag "Sign In", :class => 'btn-primary' %>
-  <% end %>
+      <%= label_tag :email %>
+      <%= email_field_tag :email, "", class: 'form-group form-control'  %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password, "", class: 'form-group form-control' %>
+    <%= submit_tag "Sign in", :class => "btn btn-primary col-12 form-group"%>
+    <% end %>
+  </div>
 </div>

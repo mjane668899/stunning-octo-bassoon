@@ -12,7 +12,9 @@
       <!-- Loop through all properties in database and display in css grid (auto rows) -->
       <% @properties.each do |property| %>
       <div class="card-home">
+        <% if property.photo.present? %>
         <%= image_tag property.photo, :class => "card-image" %>
+        <% end %>
         <p class="card-description"><%= link_to property.name, property%></p>
         <p class="card-price">$<%=property.price %>/ night</p>
       </div>
