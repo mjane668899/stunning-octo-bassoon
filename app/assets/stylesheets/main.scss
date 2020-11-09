@@ -40,6 +40,40 @@ header nav .logo {
   font-size: 35px;
   font-weight: bold;
 }
+.grid-home {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: auto;
+  margin: 20px 0 0 0;
+  padding: 10px;
+}
+.card-home {
+  grid-row: auto;
+  grid-column: auto;
+  width: auto;
+  min-height: 300px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  // box-shadow: -4px 3px 11px -1px rgba(156,156,156,1);
+}
+.card-image {
+  width: 100%;
+  height: auto;
+}
+.card-price, .card-description{
+  text-align: left;
+  font-weight: bold;
+  margin: 10px;
+}
+a.card-description {
+  margin: 0;
+}
+div.container.grid-home {
+  margin: 0;
+  padding: 0;
+}
 .container {
   max-width: 1100px;
   margin: 0 auto;

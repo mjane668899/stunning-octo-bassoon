@@ -7,7 +7,7 @@ puts "#{ User.count } users"
 Property.destroy_all
 10.times do
 Property.create([{
-  name: Faker::Lorem.sentence(word_count: 1),
+  name: Faker::Lorem.sentence(word_count: 6),
   address: Faker::Lorem.sentence(word_count: 6),
   price: 1200,
   guest: 1,
