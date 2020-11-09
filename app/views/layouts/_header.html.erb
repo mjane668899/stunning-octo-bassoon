@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <nav class="theme-1">
-      <%= image_tag 'logo.svg',  :class => "logo btn" %>
+      <%=  link_to image_tag('logo.svg', :class => "logo btn"), root_path %>
           <ul>
             <li><a><%= link_to "Search Homes", properties_path, class:"btn" %></a></li>
             <li><a class="btn"href="#">Experiences</a></li>

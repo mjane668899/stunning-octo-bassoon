@@ -2,15 +2,12 @@
 
 <section>
   <div class="container">
-    <form>
-      <h3>Filters</h3>
-      <%= render :partial => 'filter' %>
-    </form>
+    <%= render :partial => 'filter' %>
   </div>
 </section>
 <section>
   <div class="container">
-    <h1>All Properties</h1>
+    <h1>Search Results</h1>
     <div class="container grid-home">
       <!-- Loop through all properties in database and display in css grid (auto rows) -->
       <% @properties.each do |property| %>
