@@ -6,6 +6,14 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
+    @markers = @properties.map do |property|
+      {
+        lat: property.latitude,
+        lng: property.longitude,
+        infoWindow: { content: render_to_string(partial: "/properties/info_window", locals: { property: property }) }
+        # infoWindow waiting for mike 
+      }
+    end
   end
 
   def create
