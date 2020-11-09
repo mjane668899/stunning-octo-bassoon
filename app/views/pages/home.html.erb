@@ -4,11 +4,11 @@
       <nav class="theme-1">
         <%= image_tag 'logo.svg',  :class => "logo btn" %>
             <ul>
-              <li><a><%= link_to "Search Homes", properties_path, class:"btn" %></a></li>
-              <li><a class="btn"href="#">Experiences</a></li>
+              <li><a class="btn"href="#">Places to stay</a></li>
+              <li><a class="btn"href="#">Experience</a></li>
               <li><a class="btn"href="#">Become a host</a></li>
-              <li><a><%= link_to "Log in", login_path, class:"btn btn-success"%></a></li>
-              <li><a><%= link_to "Sign up", new_user_path, class:"btn btn-primary"%></a></li>
+              <li><a><%= link_to "Log in", login_path, class:"btn btn-primary"%></a></li>
+              <li><a><%= link_to "Sign up", new_user_path, class:"btn btn-secondary"%></a></li>
             </ul>
           </nav>
         </div>
@@ -18,21 +18,53 @@
           <div class="container">
             <h1 class="display-3">Search for Properties</h1>
             <p>Use the interactive map to view available accomodation</p>
-            <p><a class="btn btn-success" href="#" role="button">Search Map »</a></p>
-            <p><a><%= link_to "Search Map", properties_path, class:"btn btn-primary"%></a></p>
+            <section class="search-sec">
+              <div class="container">
+                <form action="#" method="post" novalidate="novalidate">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                          <input type="text" class="form-control search-slt" placeholder="Where are you going?">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                          <input type="text" class="form-control search-slt" placeholder="Check in">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                          <input type="text" class="form-control search-slt" placeholder="Check out">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                          <select class="form-control search-slt" id="exampleFormControlSelect1">
+                            <option>Guest</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                          </select>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                          <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </section>
           </div>
         </div>
       </main>
       <section>
         <div class="container">
-          <h1>Promoted Homes</h1>
-          <div class="container grid-home">
-            <!-- Loop through all properties in database and display in css grid (auto rows) -->
-            <% @properties.limit(6).each do |property| %>
-            <div class="card-home">
-              <%= image_tag property.photo, :class => "card-image" %>
-              <p class="card-description"><%= link_to property.name, property%></p>
-              <p class="card-price">$<%=property.price %>/ night</p>
+          <div class="container grid">
+            <h1>Available Homes</h1>
+            <!-- Loop through all products in database and display in css grid (auto rows) -->
+            <% @properties.each do |property| %>
+            <div class="card-item">
+              <!--%= image_tag property.image_url, :class => "card-img" %-->
+              <h2><%= link_to property.name, property %></h2>
             </div>
             <% end %>
           </div>
