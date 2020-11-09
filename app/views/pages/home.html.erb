@@ -7,8 +7,8 @@
               <li><a class="btn"href="#">Places to stay</a></li>
               <li><a class="btn"href="#">Experience</a></li>
               <li><a class="btn"href="#">Become a host</a></li>
-              <li><a><%= link_to "Log in", login_path, class:"btn btn-primary"%></a></li>
-              <li><a><%= link_to "Sign up", new_user_path, class:"btn btn-secondary"%></a></li>
+              <li><a><%= link_to "Log in", login_path, class:"btn btn-success"%></a></li>
+              <li><a><%= link_to "Sign up", new_user_path, class:"btn btn-primary"%></a></li>
             </ul>
           </nav>
         </div>
@@ -24,13 +24,14 @@
       </main>
       <section>
         <div class="container">
-          <div class="container grid">
-            <h1>Available Homes</h1>
-            <!-- Loop through all products in database and display in css grid (auto rows) -->
-            <% @properties.each do |property| %>
-            <div class="card-item">
-              <!--%= image_tag property.image_url, :class => "card-img" %-->
-              <h2><%= link_to property.name, property %></h2>
+          <h1>Promoted Homes</h1>
+          <div class="container grid-home">
+            <!-- Loop through all properties in database and display in css grid (auto rows) -->
+            <% @properties.limit(6).each do |property| %>
+            <div class="card-home">
+              <%= image_tag property.photo, :class => "card-image" %>
+              <p class="card-description"><%= link_to property.name, property%></p>
+              <p class="card-price">$<%=property.price %>/ night</p>
             </div>
             <% end %>
           </div>
