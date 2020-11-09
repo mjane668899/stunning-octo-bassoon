@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
 
   def index
-    @properties = Property.all
+    @properties = Property.search(params[:search]) # required for simple search
   end
 
   def new
