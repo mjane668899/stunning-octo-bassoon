@@ -34,6 +34,8 @@ gem 'dotenv-rails'
 # Fake seed data
 gem 'faker'
 
+# Geocoding (by street or IP address)
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
 
 
 # Use ActiveStorage variant

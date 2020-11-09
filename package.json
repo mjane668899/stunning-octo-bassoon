@@ -1,5 +1,7 @@
 {
   "name": "airbnb",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.7.0"
+  }
 }
