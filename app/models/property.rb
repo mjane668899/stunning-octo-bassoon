@@ -8,6 +8,5 @@ class Property < ApplicationRecord
       all
     end
   end
-
-
+  
 end

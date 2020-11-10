@@ -1,7 +1,7 @@
 User.destroy_all
 u1 = User.create :email => 'jasper@ga.com', :password => 'chicken'
 u2 = User.create :email => 'mj@ga.com', :password => 'chicken'
-u3 = User.create :email => 'mike@ga.com', :password => 'chicken', :stripe_user_id => 'acct_1HfE8uA6UJHgoYK8'
+u3 = User.create :email => 'mike@ga.com', :password => 'chicken'
 puts "#{ User.count } users"
 
 Property.destroy_all

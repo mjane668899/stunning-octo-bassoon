@@ -27,6 +27,9 @@ class UsersController < ApplicationController
     @property = Property.new
   end
 
+  def settings
+  end
+
   private
 
   def user_params

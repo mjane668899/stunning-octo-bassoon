@@ -1,15 +1,14 @@
 <%= render :partial => 'layouts/header' %>
-
 <div class="container my-5">
   <!-- If current user has now stripe token show connect to stripe button -->
   <% if @current_user.stripe_user_id.nil? %>
-  <div class="grid-col-3">
+  <div class="container my-5">
     <h1>My Listings</h1>
-    <%= button_to "Connect a Stripe Account", account_create_path, method: :post, remote: true, :class => 'btn-primary btn-3 col-3' %>
+    <%= button_to "Connect a Stripe Account", account_create_path, method: :post, remote: true, :class => 'btn btn-primary mt-2' %>
   </div>
   <div class="container">
-    <p class="create-stripe-prompt">Create or connect an existing
-      <%= link_to "Stripe", 'https://stripe.com/au/connect'%> account to sell products & receive payments online.</p>
+    <p>Create or connect an existing
+      <%= link_to "Stripe", 'https://stripe.com/au/connect'%> to receive payouts online.</p>
     </div>
 
     <!-- if current user has linked a stripe account to the platform show a link to stripe express dashboard and link to create a new product-->
