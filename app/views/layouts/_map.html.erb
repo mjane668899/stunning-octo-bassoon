@@ -1,0 +1,9 @@
+<div class="shadow p-3 mb-5 bg-white rounded">
+  <div
+    class="rounded index-map"
+    id="map"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+</div>
+</div>
