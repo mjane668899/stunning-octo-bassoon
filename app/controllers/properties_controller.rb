@@ -2,18 +2,18 @@ class PropertiesController < ApplicationController
 
   def index
     @properties = Property.search(params[:search]) # required for simple search
+    @markers = @properties.map do |property|
+       {
+         lat: property.latitude,
+         lng: property.longitude,
+         infoWindow: { content: render_to_string(partial: "/layouts/map", locals: { property: property }) }
+       }
+     end
   end
 
   def new
     @property = Property.new
-    # @markers = @properties.map do |property|
-    #   {
-    #     lat: property.latitude,
-    #     lng: property.longitude,
-    #     infoWindow: { content: render_to_string(partial: "/properties/info_window", locals: { property: property }) }
-    #     # infoWindow waiting for mike
-    #   }
-    # end
+
   end
 
   def create
@@ -25,6 +25,11 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find params[:id]
+    @markers = [{
+      lat: @property.latitude,
+      lng: @property.longitude,
+      infoWindow: { content: render_to_string(partial: "/layouts/map", locals: { property: @property }) }
+    }]
   end
 
   def edit
@@ -45,6 +50,6 @@ class PropertiesController < ApplicationController
 
   private
   def property_params
-    params.require(:property).permit(:title, :price, :description, :street_number, :address, :suburb, :state, :country, :guest, :bedroom, :bathroom, :bed, :parking_space, :available_date, :photo, :details)
+    params.require(:property).permit(:title, :price, :description, :street_number, :address,  :guest, :bedroom, :bathroom, :bed, :parking_space, :available_date)
   end
 end

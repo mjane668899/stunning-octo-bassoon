@@ -10,7 +10,6 @@ header {
   background-color: rgba(104, 78, 157, 1);
   color: #fff;
   height: auto;
-  font-family: "Secular One", sans-serif;
 }
 header .container {
   padding: 0;
@@ -100,4 +99,8 @@ div.container.grid-home {
 }
 .form-center {
   margin: 0 auto;
+}
+.error-msg {
+  font-size: 14px;
+  color: red;
 }

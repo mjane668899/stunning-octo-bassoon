@@ -18,7 +18,6 @@
           <div class="container">
             <h1 class="display-3">Search for Properties</h1>
             <p>Use the interactive map to view available accomodation</p>
-<<<<<<< HEAD
             <section class="search-sec">
               <div class="container">
                 <form action="#" method="post" novalidate="novalidate">
@@ -54,21 +53,20 @@
                 </form>
               </div>
             </section>
-=======
             <p><a><%= link_to "Search Map", properties_path, class:"btn btn-primary"%></a></p>
->>>>>>> 22975ed653e2a0a671ddb185244e20b7747c3f6d
           </div>
         </div>
       </main>
       <section>
         <div class="container">
-          <div class="container grid">
-            <h1>Available Homes</h1>
-            <!-- Loop through all products in database and display in css grid (auto rows) -->
-            <% @properties.each do |property| %>
-            <div class="card-item">
-              <!--%= image_tag property.image_url, :class => "card-img" %-->
-              <h2><%= link_to property.name, property %></h2>
+          <h1>Promoted Homes</h1>
+          <div class="container grid-home">
+            <!-- Loop through all properties in database and display in css grid (auto rows) -->
+            <% @properties.limit(6).each do |property| %>
+            <div class="card-home">
+              <%= image_tag property.photo, :class => "card-image" %>
+              <p class="card-description"><%= link_to property.title, property%></p>
+              <p class="card-price">$<%=property.price %> / night</p>
             </div>
             <% end %>
           </div>

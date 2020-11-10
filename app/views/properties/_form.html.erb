@@ -1,15 +1,12 @@
-<div class="card w-50 form-center">
-  <div class="card-body">
-    <h5 class="card-title form-group">New Property</h5>
-    <p class="card-text form-group">Complete the form below to create a new property</p>
+
     <%= form_for @property do |f| %>
     <div>
       <%= f.label :title %>
-      <%= f.text_field :title, :class =>'form-group form-control', :placeholder =>'PRIME LOCATION Private Retreat Stunning Views' %>
+      <%= f.text_field :title, :class =>'form-group form-control', :placeholder =>'PRIME LOCATION Private Retreat Stunning Views', :maxlength => 35 %>
       <%= f.label :description %>
       <%= f.text_area :description, :class =>'form-group form-control', :placeholder =>'Located in a boutique block, this ground floor apartment is....' %>
       <%= f.label :address %>
-      <%= f.text_field :address, :class =>'form-group form-control', :placeholder =>'Address'%>    
+      <%= f.text_field :address, :class =>'form-group form-control', :placeholder =>'Address'%>
       <%= f.label :guest %>
       <%= f.number_field :guest, :class =>'form-group form-control', :placeholder =>'Guests', min: 1 %>
       <%= f.label :bedroom %>
@@ -23,5 +20,3 @@
       <%= f.submit "Submit", :class => "btn btn-primary col-12 form-group"%>
     </div>
     <% end %>
-  </div>
-</div>

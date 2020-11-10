@@ -1,9 +1,32 @@
-<div class="shadow p-3 mb-5 bg-white rounded">
-  <div
-    class="rounded index-map"
-    id="map"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-</div>
+<div class="d-flex justify-content-around">
+  <div class="shadow p-4 mb-5 bg-white rounded overflow-auto main-list">
+    <% @properties.each do |property| %>
+      <%= link_to property_path(property), class: "text-decoration-none text" do %>
+        <div class="index-card card mb-3 p-2 shadow-sm">
+          <div class="row no-gutter linkable">
+            <div class="col-md-4 img-card">
+              <%= cl_image_tag property.photo, class: "card-img" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= property.name %></h5>
+                <p class="card-text"><%= property.address %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <div
+      class="rounded index-map"
+      id="map"
+      style="width: 220px;
+      height: 200px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['pk.eyJ1IjoibWphbmU2Njg4OTkiLCJhIjoiY2toYmdnM3c1MDNvYjJybGU5dWk1MHZ5diJ9.UBPzPJpiEZyZU-Si5ABZVg'] %>"
+    >
+    </div>
+  </div>
 </div>
