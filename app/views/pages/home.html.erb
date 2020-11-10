@@ -30,8 +30,8 @@
             <% @properties.limit(6).each do |property| %>
             <div class="card-home">
               <%= image_tag property.photo, :class => "card-image" %>
-              <p class="card-description"><%= link_to property.name, property%></p>
-              <p class="card-price">$<%=property.price %>/ night</p>
+              <p class="card-description"><%= link_to property.title, property%></p>
+              <p class="card-price">$<%=property.price %> / night</p>
             </div>
             <% end %>
           </div>

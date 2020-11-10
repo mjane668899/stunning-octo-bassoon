@@ -5,11 +5,11 @@
     <%= form_for @property do |f| %>
     <div>
       <%= f.label :title %>
-      <%= f.text_field :title, :class =>'form-group form-control', :placeholder =>'PRIME LOCATION Private Retreat Stunning Views' %>
+      <%= f.text_field :title, :class =>'form-group form-control', :placeholder =>'PRIME LOCATION Private Retreat Stunning Views', :maxlength => 35 %>
       <%= f.label :description %>
       <%= f.text_area :description, :class =>'form-group form-control', :placeholder =>'Located in a boutique block, this ground floor apartment is....' %>
       <%= f.label :address %>
-      <%= f.text_field :address, :class =>'form-group form-control', :placeholder =>'Address'%>    
+      <%= f.text_field :address, :class =>'form-group form-control', :placeholder =>'Address'%>
       <%= f.label :guest %>
       <%= f.number_field :guest, :class =>'form-group form-control', :placeholder =>'Guests', min: 1 %>
       <%= f.label :bedroom %>
