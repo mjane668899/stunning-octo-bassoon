@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # Properties
+
   resources :properties
+
+  # bookings : (still in test mode)
+  resources :booking
+  get 'booking/index'
+
 
   # Users
   resources :users, :only => [:new, :create, :show]

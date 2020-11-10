@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="form-wrapper"style="width: 500px; margin:0 auto;">
+    <h1>Booking table Test</h1>
+
+    <%= form_for @bookings :search, method: :get do |t| %>
+      <%= t.input :starts_at, as: String, input_html: { id: "start_date" } %>
+      <%= t.input :ends_at, as: String, input_html: { id: "end_date" } %>
+      <%= t.submit "Go", class: "btn btn-primary" %>
+
+    <% end %>
+    </div>
+  </div>
