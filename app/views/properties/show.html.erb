@@ -24,10 +24,11 @@
     <li><%= @property.bed %> bed</li>
     <li><%= @property.bathroom %> bathroom</li>
   </ul>
+  <%= button_to "Show all photos", pages_error_path, :method => "get", :class => 'btn btn-outline-info' %>
 </div>
 
 <div class="container">
   <h3>About the property</h3>
   <p><%= @property.description %></p>
-  <button class="btn btn-outline-success">Contact Host</button>
+  <%= button_to "Contact Host", pages_error_path, :method => "get", :class => 'btn btn-outline-success' %>
 </div>
