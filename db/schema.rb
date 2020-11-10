@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_11_06_043119) do
+=======
+ActiveRecord::Schema.define(version: 2020_11_10_050754) do
+>>>>>>> 713c43edc11f9ca818674042d137186e68cbec41
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +33,16 @@ ActiveRecord::Schema.define(version: 2020_11_06_043119) do
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.text "title"
+    t.integer "street_number"
+    t.text "suburb"
+    t.text "state"
+    t.text "country"
+    t.text "description"
+    t.integer "user_id"
+    t.string "listing_owner_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,17 +1,25 @@
 class PropertiesController < ApplicationController
 
   def index
-    @properties = Property.all
+    @properties = Property.search(params[:search]) # required for simple search
   end
 
   def new
     @property = Property.new
+    # @markers = @properties.map do |property|
+    #   {
+    #     lat: property.latitude,
+    #     lng: property.longitude,
+    #     infoWindow: { content: render_to_string(partial: "/properties/info_window", locals: { property: property }) }
+    #     # infoWindow waiting for mike
+    #   }
+    # end
   end
 
   def create
     property = Property.create property_params
-    # User.first.properties << property
-    # property.update_column(:product_owner_id, @current_user.stripe_user_id)
+    @current_user.properties << property
+    property.update_column(:listing_owner_id, @current_user.stripe_user_id)
     redirect_to property
   end
 
@@ -37,6 +45,6 @@ class PropertiesController < ApplicationController
 
   private
   def property_params
-    params.require(:property).permit(:name, :address, :price, :guest, :bedroom, :bathroom, :bed, :parking_space, :available_date, :photo, :details)
+    params.require(:property).permit(:title, :price, :description, :street_number, :address,  :guest, :bedroom, :bathroom, :bed, :parking_space, :available_date)
   end
 end

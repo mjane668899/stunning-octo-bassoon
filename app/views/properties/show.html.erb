@@ -1,0 +1,42 @@
+<%= render :partial => 'layouts/header' %>
+
+<div class="container mt-5">
+  <h2><%= @property.title %></h2>
+  <p><%= @property.address %> </p>
+</div>
+
+<div class="container">
+  <div class="container-property-images">
+    <!--% @properties.each do |property| %-->
+    <% if @property.photo.present? %>
+    <%= image_tag @property.photo, :class => "image-main rounded" %>
+    <%= image_tag @property.photo, :class => "image-1 rounded" %>
+    <%= image_tag @property.photo, :class => "image-2 rounded" %>
+    <%= image_tag @property.photo, :class => "image-3 rounded" %>
+    <%= image_tag @property.photo, :class => "image-4 rounded" %>
+    <% else %>
+    <%= image_tag 'noimg.svg', :class => "image-main" %>
+    <%= image_tag 'noimg.svg', :class => "image-1" %>
+    <%= image_tag 'noimg.svg', :class => "image-2" %>
+    <%= image_tag 'noimg.svg', :class => "image-3" %>
+    <%= image_tag 'noimg.svg', :class => "image-4" %>
+    <% end %>
+    <!--% end %-->
+  </div>
+</div>
+
+<div class="container property-info-bar">
+  <ul>
+    <li><%= @property.guest %> guest</li>
+    <li><%= @property.bedroom %> bedroom</li>
+    <li><%= @property.bed %> bed</li>
+    <li><%= @property.bathroom %> bathroom</li>
+  </ul>
+  <%= button_to "Show all photos", pages_error_path, :method => "get", :class => 'btn btn-outline-info' %>
+</div>
+
+<div class="container">
+  <h3>About the property</h3>
+  <p><%= @property.description %></p>
+  <%= button_to "Contact Host", pages_error_path, :method => "get", :class => 'btn btn-outline-success' %>
+</div>

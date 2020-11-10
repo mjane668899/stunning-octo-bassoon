@@ -1,0 +1,26 @@
+<%= render :partial => 'layouts/header' %>
+
+<section>
+  <div class="container">
+    <%= render :partial => 'filter' %>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <h1>Search Results</h1>
+    <div class="container grid-home">
+      <!-- Loop through all properties in database and display in css grid (auto rows) -->
+      <% @properties.each do |property| %>
+      <div class="card-home">
+        <% if property.photo.present? %>
+        <%= image_tag property.photo, :class => "card-image" %>
+        <% else %>
+        <%= image_tag 'noimg.svg', :class => "card-image" %>
+        <% end %>
+        <p class="card-description"><%= link_to property.title, property%></p>
+        <p class="card-price">$<%=property.price %>/ night</p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>

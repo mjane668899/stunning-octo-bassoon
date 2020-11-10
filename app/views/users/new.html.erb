@@ -1,12 +1,14 @@
-<h1>Sign Up</h1>
-<%= form_for @user do |f|%>
-  <%= f.label :first_name%><br>
-  <%= f.text_field :first_name%><br>
-  <%= f.label :last_name%><br>
-  <%= f.text_field :last_name%><br>
-  <%= f.label :email%><br>
-  <%= f.email_field :email%><br>
-  <%= f.label :password%><br>
-  <%= f.password_field :password%><br>
-  <%= f.submit %>
-<%end%>
+
+<div class="card w-25 my-5 mx-auto">
+  <div class="card-body">
+    <h5 class="card-title form-group">Sign up</h5>
+    <p class="card-text form-group">Complete the form below to register</p>
+    <%= form_for @user do |f|%>
+    <%= f.label :email%>
+    <%= f.email_field :email, :class =>'form-group form-control'%>
+    <%= f.label :password%>
+    <%= f.password_field :password, :class =>'form-group form-control'%>
+    <%= f.submit "Sign up", :class => "btn btn-primary col-12 form-group"%>
+    <% end %>
+  </div>
+</div>
