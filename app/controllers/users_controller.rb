@@ -22,6 +22,11 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
   end
 
+  def listings
+    @properties = Property.all # Allows properties to display on user dashboard
+    @property = Property.new
+  end
+
   private
 
   def user_params

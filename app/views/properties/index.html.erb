@@ -14,6 +14,8 @@
       <div class="card-home">
         <% if property.photo.present? %>
         <%= image_tag property.photo, :class => "card-image" %>
+        <% else %>
+        <%= image_tag 'noimg.svg', :class => "card-image" %>
         <% end %>
         <p class="card-description"><%= link_to property.title, property%></p>
         <p class="card-price">$<%=property.price %>/ night</p>

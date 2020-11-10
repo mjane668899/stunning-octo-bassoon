@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/login' => 'sessions#destroy'
+  get 'listings' => 'users#listings', as: 'users_listings'
 
   # stripe : create connect accounts
   scope '/stripe_account' do

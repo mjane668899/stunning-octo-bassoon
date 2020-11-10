@@ -8,11 +8,19 @@
 <div class="container">
   <div class="container-property-images">
     <!--% @properties.each do |property| %-->
+    <% if @property.photo.present? %>
     <%= image_tag @property.photo, :class => "image-main rounded" %>
     <%= image_tag @property.photo, :class => "image-1 rounded" %>
     <%= image_tag @property.photo, :class => "image-2 rounded" %>
     <%= image_tag @property.photo, :class => "image-3 rounded" %>
     <%= image_tag @property.photo, :class => "image-4 rounded" %>
+    <% else %>
+    <%= image_tag 'noimg.svg', :class => "image-main" %>
+    <%= image_tag 'noimg.svg', :class => "image-1" %>
+    <%= image_tag 'noimg.svg', :class => "image-2" %>
+    <%= image_tag 'noimg.svg', :class => "image-3" %>
+    <%= image_tag 'noimg.svg', :class => "image-4" %>
+    <% end %>
     <!--% end %-->
   </div>
 </div>
