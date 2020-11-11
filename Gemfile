@@ -34,9 +34,9 @@ gem 'dotenv-rails'
 # Fake seed data
 gem 'faker'
 
-#Booker
-gem 'webpacker', '~> 5.x'
-gem 'simple_form'
+# #Booker
+# gem 'webpacker', '~> 5.x'
+# gem 'simple_form'
 
 # Geocoding (by street or IP address)
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
