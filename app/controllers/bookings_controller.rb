@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
   def new
     if @current_user.present?
       @booking = Booking.new
-      redirect_to booking
     else
       redirect_to login_path
     end
