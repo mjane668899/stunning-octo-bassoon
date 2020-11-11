@@ -39,7 +39,11 @@ gem 'faker'
 # gem 'simple_form'
 
 # Geocoding (by street or IP address)
-gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem 'geocoder'
+gem 'geokit-rails'
+gem 'mapbox-rails'
+gem 'mapbox-gl-rails'
+gem 'webpacker', '~> 5.x'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
