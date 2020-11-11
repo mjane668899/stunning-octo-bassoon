@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'error' => 'pages#error', as: 'pages_error'
 
   # Properties
+
   resources :properties
+
+  # bookings : (still in test mode)
+  resources :bookings
 
   # Users
   resources :users, :only => [:new, :create, :show]
@@ -12,12 +16,14 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/login' => 'sessions#destroy'
   get 'listings' => 'users#listings', as: 'users_listings'
+  get 'settings' => 'users#settings', as: 'users_settings'
 
   # stripe : create connect accounts
-  scope '/stripe_account' do
-    post 'create', to: 'stripe_account#create', as: 'stripe_account_create'
-    get 'refresh', to: 'stripe_account#refresh', as: 'stripe_account_refresh'
-    get 'returns', to: 'stripe_account#returns', as: 'stripe_account_returns'
-    post 'dashboard', to: 'stripe_account#stripe_dashboard', as: 'stripe_dashboard'
+  scope '/account' do
+    post 'create', to: 'account#create', as: 'account_create'
+    post 'update', to: 'account#update', as: 'account_update'
+    get 'refresh', to: 'account#refresh', as: 'account_refresh'
+    get 'return', to: 'account#return', as: 'account_return'
+    post 'dashboard', to: 'account#stripe_dashboard', as: 'stripe_dashboard'
   end
 end

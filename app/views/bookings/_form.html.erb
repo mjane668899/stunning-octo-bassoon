@@ -1,0 +1,11 @@
+  <%= form_for @booking do |f| %>
+    <div>
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date, min: Date.today, :class =>'form-group form-control' %>
+      <%= f.label :nights %>
+      <%= f.number_field :nights, min: 1, :placeholder => 1, :class =>'form-group form-control' %>
+      <%= f.label :guests %>
+      <%= f.number_field :guests, :class =>'form-group form-control', :placeholder =>'Guests', min: 1 %>
+      <%= f.submit "Submit", :class => "btn btn-primary col-12 form-group"%>
+    </div>
+    <% end %>

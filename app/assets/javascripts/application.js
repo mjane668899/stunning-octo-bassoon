@@ -17,4 +17,8 @@
 //= require mapbox-gl
 //= require mapbox-gl-geocoder
 //= require_tree .
+<<<<<<< HEAD
 //= require mapbox.js
+=======
+//= require bootstrap-datepicker
+>>>>>>> a5260f26f97c751626a9ffd3ff63db98f98f17f1

@@ -2,11 +2,17 @@
   "name": "airbnb",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@mapbox/mapbox-gl-geocoder": "^4.7.0",
     "@rails/webpacker": "5.2.1",
     "dotenv": "^8.2.0",
     "mapbox-gl": "^1.12.0",
     "places.js": "^1.19.0"
+=======
+    "@rails/webpacker": "5.2.1",
+    "flatpickr": "^4.6.6",
+    "@mapbox/mapbox-gl-geocoder": "^4.7.0"
+>>>>>>> a5260f26f97c751626a9ffd3ff63db98f98f17f1
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"

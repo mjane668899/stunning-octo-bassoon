@@ -1,0 +1,10 @@
+<%= render :partial => 'layouts/header' %>
+
+<h1>Settings coming soon</h1>
+
+<div class="card m-5 mx-auto w-25 text-center">
+  <h5 class="m-3">View your Stripe dashboard</h5>
+  <p>Stripe connect accounts are currently in development, if the link to your Stripe dashboard does not work you will need to update your account</p>
+  <%= button_to "My Stripe Dashboard", stripe_dashboard_path, method: :post, remote: true, :class => 'btn btn-primary col-11 m-1' %>
+  <%= button_to "Update Stripe Account", account_update_path, method: :post, remote: true, :class => 'btn btn-primary col-11 m-1' %>
+</div>

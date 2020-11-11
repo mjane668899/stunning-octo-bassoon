@@ -1,0 +1,24 @@
+<%= render :partial => 'layouts/header' %>
+<% if @current_user.present? %>
+
+<section>
+
+  <div class="container">
+    <h1>Bookings</h1>
+    <div class="container grid-home">
+      <!-- Loop through all properties in database and display in css grid (auto rows) -->
+
+      <% @bookings.each do |booking| %>
+      <div class="card-home">
+        <p> <%= booking.total_price %> </p>
+        <p> <%= booking.start_date %> </p>
+        <p> <%= booking.nights %> </p>
+        <p> <%= booking.guests %> </p>
+        <p> <%= booking.property_id %> </p>
+
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+<% end %>
