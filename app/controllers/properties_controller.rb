@@ -13,13 +13,35 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
-
   end
 
   def create
     property = Property.create property_params
     property.update_column(:listing_owner_id, @current_user.id)
     redirect_to property
+    if @current_user.present?
+      @property = Property.new
+    else
+      redirect_to login_path
+    end
+    @markers = @properties.map do |property|
+       {
+         lat: property.latitude,
+         lng: property.longitude,
+         infoWindow: { content: render_to_string(partial: "/properties/info_window", locals: { property: property }) }
+         # infoWindow waiting for mike
+       }
+     end
+  end
+
+  def create
+    if @current_user.present?
+      property = Property.create property_params
+      property.update_column(:listing_owner_id, @current_user.id)
+      redirect_to property
+    else
+      redirect_to login_path
+    end
   end
 
   def show

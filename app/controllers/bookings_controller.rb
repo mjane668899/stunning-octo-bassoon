@@ -5,13 +5,21 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    if @current_user.present?
+      @booking = Booking.new
+    else
+      redirect_to login_path
+    end
   end
 
   def create
-    booking = Booking.create booking_params
-    @current_user.bookings << booking
-    redirect_to root_path
+    if @current_user.present?
+      booking = Booking.create booking_params
+      booking.update_column(:user_id, @current_user.id)
+      redirect_to booking
+    else
+      redirect_to login_path
+    end
   end
 
   def show
