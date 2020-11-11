@@ -1,0 +1,6 @@
+
+  <%= simple_form_for :search, method: :get do |t| %>
+  <%= t.input :check_in, as: :string, input_html: { id: "start_date" } %>
+  <%= t.input :check_out, as: :string, input_html: { id: "end_date" } %>
+  <%= t.submit "Book now", class: "btn btn-primary col-12" %>
+  <% end %>
