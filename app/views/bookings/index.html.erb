@@ -1,20 +1,24 @@
-<div class="container">
-  <div class="form-wrapper"style="width: 500px; margin:0 auto;">
+<%= render :partial => 'layouts/header' %>
+<% if @current_user.present? %>
 
-    <h1>Booking table Test</h1>
+<section>
 
-    <%= form_for @Booking do |f| %>
-    <%= f.error_notification %>
+  <div class="container">
+    <h1>Bookings</h1>
+    <div class="container grid-home">
+      <!-- Loop through all properties in database and display in css grid (auto rows) -->
 
-      <%= f.input :starts_at, as: String, input_html: { :id => "start_date" } %>
+      <% @bookings.each do |booking| %>
+      <div class="card-home">
+        <p> <%= booking.total_price %> </p>
+        <p> <%= booking.start_date %> </p>
+        <p> <%= booking.nights %> </p>
+        <p> <%= booking.guests %> </p>
+        <p> <%= booking.property_id %> </p>
 
-      <%= f.input :ends_at, as: String, input_html: { :id => "end_date" } %>
-
-      <%= f.submit "Go", class: "btn btn-primary" %>
-    <% end %>
+      </div>
+      <% end %>
+    </div>
   </div>
-
-</div>
-
-
-<end>
+</section>
+<% end %>
