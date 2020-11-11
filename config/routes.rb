@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   resources :properties
 
   # bookings : (still in test mode)
-  resources :booking
-  get 'booking/index'
-
+  resources :bookings
 
   # Users
   resources :users, :only => [:new, :create, :show]

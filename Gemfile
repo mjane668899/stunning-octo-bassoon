@@ -37,6 +37,13 @@ gem 'faker'
 #Booker
 gem 'webpacker', '~> 5.x'
 gem 'simple_form'
+<<<<<<< HEAD
+=======
+
+# Geocoding (by street or IP address)
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
+
+>>>>>>> 7e7f19c20e8615d0990882c4c0b22043faed75e4
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
