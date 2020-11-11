@@ -1,5 +1,6 @@
 class Property < ApplicationRecord
   belongs_to :user, :optional => true
+  has_many :bookings
 
   def self.search(search)
     if search
@@ -8,5 +9,5 @@ class Property < ApplicationRecord
       all
     end
   end
-  
+
 end
