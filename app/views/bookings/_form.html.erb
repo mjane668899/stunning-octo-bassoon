@@ -1,0 +1,16 @@
+  <%= form_for @booking do |f| %>
+    <div>
+      <%= f.label :start_date %>
+      <%= f.text_field :start_date, :class =>'form-group form-control' %>
+      <%= f.label :end_date %>
+      <%= f.text_area :end_date, :class =>'form-group form-control' %>
+      <%= f.label :nights %>
+      <%= f.text_field :nights, :class =>'form-group form-control' %>
+      <%= f.label :guests %>
+      <%= f.number_field :guests, :class =>'form-group form-control', :placeholder =>'Guests', min: 1 %>
+      <%= f.label :total_price %>
+      <%= f.number_field :total_price, :class =>'form-group form-control' %>
+
+      <%= f.submit "Submit", :class => "btn btn-primary col-12 form-group"%>
+    </div>
+    <% end %>
