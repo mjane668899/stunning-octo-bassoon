@@ -23,3 +23,9 @@ Property.create([{
   }])
 end
 puts "#{ Property.count } properties"
+
+Booking.destroy_all
+b1 = Booking.create :total_price => 0
+b2 = Booking.create :total_price => 100
+b3 = Booking.create :total_price => 200
+puts "#{ Booking.count } bookings"
