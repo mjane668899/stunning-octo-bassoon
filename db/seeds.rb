@@ -25,7 +25,15 @@ end
 puts "#{ Property.count } properties"
 
 Booking.destroy_all
-b1 = Booking.create :total_price => 0
-b2 = Booking.create :total_price => 100
-b3 = Booking.create :total_price => 200
+10.times do
+Booking.create([{
+  total_price: '$1200' ,
+  start_date: '11.12.20',
+  nights: 7,
+  guests: 2,
+  property_id: 10 ,
+  user_id: 2 ,
+  }])
+end
+
 puts "#{ Booking.count } bookings"
