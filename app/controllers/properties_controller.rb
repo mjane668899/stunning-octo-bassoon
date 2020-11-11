@@ -5,7 +5,11 @@ class PropertiesController < ApplicationController
   end
 
   def new
-    @property = Property.new
+    if @current_user.present?
+      @property = Property.new
+    else
+      redirect_to login_path
+    end
     # @markers = @properties.map do |property|
     #   {
     #     lat: property.latitude,
@@ -17,10 +21,13 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    property = Property.create property_params
-    @current_user.properties << property
-    property.update_column(:listing_owner_id, @current_user.stripe_user_id)
-    redirect_to property
+    if @current_user.present?
+      property = Property.create property_params
+      property.update_column(:listing_owner_id, @current_user.id)
+      redirect_to property
+    else
+      redirect_to login_path
+    end
   end
 
   def show
