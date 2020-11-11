@@ -11,6 +11,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= property.name %></h5>
                 <p class="card-text"><%= property.address %></p>
+                <p class="card-text"><small class="text-muted"><%= property.guest %> guests - <%= property.bedroom %> bedrooms - <%= property.bed %> beds - <%= property.bed %> baths - $<%= property.price %> per night</small></p>
               </div>
             </div>
           </div>
@@ -18,15 +19,15 @@
       <% end %>
     <% end %>
   </div>
+
   <div class="shadow p-3 mb-5 bg-white rounded">
     <div
       class="rounded index-map"
       id="map"
-      style="width: 220px;
-      height: 200px;"
+      style="width: 600px;
+      height: 500px;"
       data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['pk.eyJ1IjoibWphbmU2Njg4OTkiLCJhIjoiY2toYmdnM3c1MDNvYjJybGU5dWk1MHZ5diJ9.UBPzPJpiEZyZU-Si5ABZVg'] %>"
-    >
-    </div>
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   </div>
 </div>

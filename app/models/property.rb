@@ -3,7 +3,7 @@ class Property < ApplicationRecord
 
   def self.search(search)
     if search
-      where(["name LIKE ?", "%#{search}%"]) # check for search params against name
+      where(["title LIKE ?", "%#{search}%"]) # check for search params against name
     else
       all
     end

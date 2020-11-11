@@ -1,1 +1,32 @@
 <%= render :partial => 'layouts/header' %>
+
+
+<div class="container my-5">
+  <h1>My Dashboard</h1>
+  <div class="card-deck my-3">
+    <div class="card">
+      <%= image_tag 'trips.svg', :class => "card-img-top"   %>
+      <div class="card-body">
+        <h5 class="card-title">Your Trips</h5>
+        <p class="card-text">View your current & past reservations</p>
+        <%= button_to "Reservations", pages_error_path, :method => "get", :class => 'btn btn-primary' %>
+      </div>
+    </div>
+    <div class="card">
+      <%= image_tag 'homes.svg', :class => "card-img-top"   %>
+      <div class="card-body">
+        <h5 class="card-title">Your Listings</h5>
+        <p class="card-text">View your current & past listings</p>
+        <%= button_to "Properties", users_listings_path, :method => "get", :class => 'btn btn-primary' %>
+      </div>
+    </div>
+    <div class="card">
+      <%= image_tag 'settings.svg', :class => "card-img-top"   %>
+      <div class="card-body">
+        <h5 class="card-title">Account Settings</h5>
+        <p class="card-text">Update & manage your account</p>
+        <%= button_to "Settings", pages_error_path, :method => "get", :class => 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>

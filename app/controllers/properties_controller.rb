@@ -6,7 +6,7 @@ class PropertiesController < ApplicationController
        {
          lat: property.latitude,
          lng: property.longitude,
-         infoWindow: { content: render_to_string(partial: "/layouts/map", locals: { property: property }) }
+         infoWindow: { content: render_to_string(partial: "/properties/info_window", locals: { property: @property }) }
        }
      end
   end
@@ -18,8 +18,8 @@ class PropertiesController < ApplicationController
 
   def create
     property = Property.create property_params
-    # User.first.properties << property
-    # property.update_column(:product_owner_id, @current_user.stripe_user_id)
+    @current_user.properties << property
+    property.update_column(:listing_owner_id, @current_user.stripe_user_id)
     redirect_to property
   end
 
@@ -28,7 +28,7 @@ class PropertiesController < ApplicationController
     @markers = [{
       lat: @property.latitude,
       lng: @property.longitude,
-      infoWindow: { content: render_to_string(partial: "/layouts/map", locals: { property: @property }) }
+      infoWindow: { content: render_to_string(partial: "/properties/info_window", locals: { property: @property }) }
     }]
   end
 

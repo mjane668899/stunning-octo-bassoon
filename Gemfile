@@ -37,6 +37,9 @@ gem 'faker'
 # Geocoding (by street or IP address)
 gem 'geocoder'
 gem 'geokit-rails'
+gem 'mapbox-rails'
+gem 'mapbox-gl-rails'
+gem 'webpacker', '~> 5.x'
 
 
 # Use ActiveStorage variant

@@ -1,0 +1,39 @@
+<%= render :partial => 'layouts/header' %>
+
+<div class="container my-5">
+  <!-- If current user has now stripe token show connect to stripe button -->
+  <% if @current_user.stripe_user_id.nil? %>
+  <div class="grid-col-3">
+    <h1>My Listings</h1>
+    <%= button_to "Connect a Stripe Account", account_create_path, method: :post, remote: true, :class => 'btn-primary btn-3 col-3' %>
+  </div>
+  <div class="container">
+    <p class="create-stripe-prompt">Create or connect an existing
+      <%= link_to "Stripe", 'https://stripe.com/au/connect'%> account to sell products & receive payments online.</p>
+    </div>
+
+    <!-- if current user has linked a stripe account to the platform show a link to stripe express dashboard and link to create a new product-->
+    <% else %>
+    <div class="form-inline">
+      <h1 class="mr-5">My Listings</h1>
+      <%= button_to "Create a New Listing", new_property_path , method: :get, :class => 'btn btn-outline-primary' %>
+    </div>
+    <!-- Loop through products - show products where the current users stripe_user_id matches the product_owner_id -->
+    <div class="container grid-home my-3">
+      <% @properties.each do |property| %>
+      <!--% if @current_user.stripe_user_id == property.property_owner_id %-->
+      <div class="card-home">
+        <% if property.photo.present? %>
+        <%= image_tag property.photo, :class => "card-image" %>
+        <% else %>
+        <%= image_tag 'noimg.svg', :class => "card-image" %>
+        <% end %>
+        <p class="card-description"><%= link_to property.title, property%></p>
+        <p class="card-price">$<%=property.price %> / night</p>
+      </div>
+      <!--% end %-->
+    <% end %>
+  </div>
+</div>
+
+<% end %>
